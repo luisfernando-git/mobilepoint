@@ -1,0 +1,50 @@
+<div class="page">
+    <div class="header blue-grey">
+        <button class="left icon ion-arrow-left-c" onclick="backPage()"></button>
+        <h1 class="align-center text-strong">Cadastro de Turno</h1>
+    </div>    
+
+    <div class="content has-header">
+        <div class="list" id="formCadTurno">
+            <div class="item">
+                <input class="text-big placeholder-grey-600" type="text" id="descricao" placeholder="Descrição">
+            </div>
+            <div class="item">
+                <div class="left">
+                    <label class="text-big text-grey-600">Horário Início</label>
+                </div>
+                <input class="text-big" type="time" id="horarioInicio">
+            </div>
+            <div class="item">
+                <div class="left">
+                    <label class="text-big text-grey-600">Horário Término</label>
+                </div>
+                <input class="text-big" type="time" id="horarioTermino">
+            </div>
+            <div class="item">
+                <div class="left">
+                    <label class="text-big text-grey-600">Intervalo</label>
+                </div>
+                <input class="text-big" type="time" id="intervalo">
+            </div>
+            <div class="item">
+                <input class="text-big placeholder-grey-600" type="number" id="tempoTolerancia" min="0" max="60" placeholder="Tolerância (minutos)">
+            </div>
+            <div class="item">
+                <div class="left">
+                    <input type="checkbox" class="teal-800" id="ativo">
+                </div>
+                <label class="text-big text-grey-600">Ativo</label>
+            </div>
+            <div class="item align-center">
+                <button class="radius text-white" style="width: 150px" onclick="saveTurno()">SALVAR</button>
+                <button class="radius text-white" style="width: 150px" onclick="clearForm()">LIMPAR</button>
+            </div>
+            <div class="item text-red hidden" id="validationName">
+                <p>
+                  <i class="icon ion-alert-circled"></i> Descrição deve ser informada.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

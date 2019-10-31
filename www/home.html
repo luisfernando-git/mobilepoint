@@ -2,17 +2,14 @@
     <div class="header blue-grey">
         <h1>Menu</h1>
         <button class="left icon ion-navicon" onclick="openMenu('menu')"></button>
-        <div class="right">
-            
-        </div>
     </div>
 
     <div class="menu white" id="menu">
         <div class="list no-border">
-            <div class="item blue-grey-400" >
+            <div class="item blue-grey-400" data="usuarioLogado">
                 <div class="space-big"></div>
-                <h2 class="text-strong">Luis Fernando</h2>
-                <p class="text-blue-grey-100">luis.fernando@mobilepoint.com.br</p>
+                <h2 class="text-strong">${nome}</h2>
+                <p class="text-blue-grey-50">${email}</p>
             </div>
         </div>
 
@@ -29,7 +26,7 @@
                 </div>
                 <h1>Funcionários</h1>
             </div>
-            <div class="item">
+            <div class="item" onclick="openPage('listTurnos'), findTurnos()">
                 <div class="left">
                     <i class="icon ion-calendar"></i>
                 </div>
@@ -56,7 +53,32 @@
         </div>
     </div>
 
-    <div class="content has-header cover black-opacity-30 blend-soft-light" style="background-image:url(/img/home.jpg)">
-       
-    </div>         
+    <div class="content has-header">
+        <div class="align-center">  
+            <div class="space"></div>
+            <img src="img/logo.png" width="40%">
+        </div>
+
+        <div class="list">
+            <div class="item">
+                <div id="horario" class="text-huge align-center text-strong"></div>
+                <div id="data" class="text-huge align-center text-strong"></div>
+            </div>
+            <div class="item">
+                <h1 class="text-teal-800">PONTOS REALIZADOS NAS ÚLTIMAS 24 HORAS:   </h1>
+            </div>
+            <div class="item" data="usuarioLogado">
+                <h1>Funcionário: ${nome}</h1>
+            </div>
+            <div class="item">
+                <h1>Horários: 18:00:00 - 22:00:00 - 02:00:00</h1>
+            </div>  
+        </div>
+    </div>    
+    
+    <div class="footer align-center">
+        <button class="radius text-white" style="width: 30%">ENTRADA</button> 
+        <button class="radius orange text-white" style="width: 30%">INTERVALO</button>
+        <button class="radius red text-white" style="width: 30%">SAÍDA</button>
+    </div>
 </div>

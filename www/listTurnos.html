@@ -1,0 +1,22 @@
+<div class="page">
+    <div class="header blue-grey">
+        <button class="left icon ion-arrow-left-c" onclick="backPage()"></button>
+        <h1 class="align-center text-strong">Turnos</h1>
+        
+        <button class="right icon ion-plus-round" onclick="openPage('cadTurno')"></button>
+        
+    </div>  
+
+    <div class="content has-header">
+        <div class="list">
+            <div class="item" data="turnos">
+                <h2 class="text-strong">${descricao}</h2>
+                <p>Horário: ${horarioInicio} - ${horarioTermino}</p>
+                <div class="right">
+                    <button class="icon ion-edit white radius border-grey" style="width: 40px"></button>
+                    <button class="icon ion-trash-b white radius border-grey" style="width: 40px"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

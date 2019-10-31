@@ -58,7 +58,7 @@ function saveEmpresa() {
 
 function returnApi(error, res) {
     if (error) {
-        alert('Desculpe, houve um problema na conexão!')
+        alert('Houve um problema na conexão, tente novamente!');
         return console.log(res.error)
     }
     
@@ -73,7 +73,7 @@ function findEmpresa() {
 
 function resultAjaxEmpresa(err, res){
     if(err) {
-        alert('Desculpe, houve um problema na conexão!');
+        alert('Houve um problema na conexão, tente novamente!');
     } else {
         if (res.body != null) {
             empresa = res.body;
