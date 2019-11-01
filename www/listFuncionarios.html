@@ -1,0 +1,24 @@
+<div class="page">
+    <div class="header indigo">
+        <button class="left icon ion-arrow-left-c" onclick="backPage()"></button>
+        <h1 class="align-center text-strong">Funcionários</h1>
+        
+        <button class="right icon ion-plus-round" onclick="openPage('cadFuncionario'), findTurnos(), findEmpresa()"></button>
+        
+    </div>  
+
+    <div class="content has-header">
+        <div class="list">
+            <div class="item" data="funcionarios">
+                <h2 class="text-strong">${nome}</h2>
+                <p>CPF: ${cpf} - Matrícula: ${matricula}</p>
+                <div class="right">
+                    <button class="icon ion-edit white radius border-grey" style="width: 40px"
+                        onclick="openPage('cadFuncionario'), findTurnos(), findEmpresa(), updateFuncionario('${id}')"></button>
+                    <button class="icon ion-trash-b white radius border-grey" style="width: 40px"
+                        onclick="deleteFuncionario('${id}')"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

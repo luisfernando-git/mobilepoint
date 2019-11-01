@@ -1,15 +1,15 @@
 <div class="page">
-    <div class="header blue-grey">
+    <div class="header indigo">
         <h1>Menu</h1>
         <button class="left icon ion-navicon" onclick="openMenu('menu')"></button>
     </div>
 
     <div class="menu white" id="menu">
         <div class="list no-border">
-            <div class="item blue-grey-400" data="usuarioLogado">
-                <div class="space-big"></div>
-                <h2 class="text-strong">${nome}</h2>
-                <p class="text-blue-grey-50">${email}</p>
+            <div class="item indigo" data="usuarioLogado">
+                <div class="space"></div>
+                <h1 class="text-strong icon ion-person"> ${nome}</h1>
+                <p class="text-blue-grey-50 text-small icon ion-android-mail"> ${email}</p>
             </div>
         </div>
 
@@ -20,7 +20,7 @@
                 </div>
                 <h1>Empresa</h1>
             </div>
-            <div class="item">
+            <div class="item" onclick="openPage('listFuncionarios'), findFuncionarios()">
                 <div class="left">
                     <i class="icon ion-person"></i>
                 </div>
@@ -55,17 +55,17 @@
 
     <div class="content has-header">
         <div class="align-center">  
-            <div class="space"></div>
-            <img src="img/logo.png" width="40%">
+            <div class="space-big"></div>
+            <img src="img/logo.png" width="90%">
         </div>
 
         <div class="list">
             <div class="item">
-                <div id="horario" class="text-huge align-center text-strong"></div>
-                <div id="data" class="text-huge align-center text-strong"></div>
+                <div id="horario" class="text-huge align-center text-strong text-indigo"></div>
+                <div id="data" class="text-huge align-center text-strong text-indigo"></div>
             </div>
             <div class="item">
-                <h1 class="text-teal-800">PONTOS REALIZADOS NAS ÚLTIMAS 24 HORAS:   </h1>
+                <h1 class="text-indigo">PONTOS REALIZADOS NAS ÚLTIMAS 24 HORAS:   </h1>
             </div>
             <div class="item" data="usuarioLogado">
                 <h1>Funcionário: ${nome}</h1>

@@ -42,7 +42,7 @@ function resultAjaxTurnos(err, res) {
 
 function clearForm() {
     MobileUI.clearForm('formCadTurno');
-    document.getElementById('ativo').value = false;
+    document.getElementById('ativo').checked = false;
 }
 
 function saveTurno() {
@@ -64,9 +64,9 @@ function saveTurno() {
             ativo: ativo
         }).end(returnApi)
     } else {
-        var urlPost = 'http://localhost:9091/api/mobilepoint/turnos' + turno.id;
+        var urlPut = 'http://localhost:9091/api/mobilepoint/turnos/' + turno.id;
         MobileUI.ajax.put(urlPut).send({
-            turno: turno.id,
+            id: turno.id,
             descricao: descricao,
             horarioInicio: horarioInicio,
             horarioTermino: horarioTermino,
@@ -75,6 +75,8 @@ function saveTurno() {
             ativo: ativo
         }).end(returnApi)
     }
+
+    turno = undefined;
 }
 
 function returnApi(error, res) {
@@ -87,4 +89,71 @@ function returnApi(error, res) {
     clearForm();
     findTurnos();
     openPage('listTurnos');
+}
+
+function deleteTurno(id) {
+    var url = 'http://localhost:9091/api/mobilepoint/turnos/' + id;
+    MobileUI.ajax.get(url).end(function(err, res) {
+        if(err) {
+            alert('Houve um problema na conexão, tente novamente!');
+        } else {
+            let turno = res.body;
+            var urlFunc = 'http://localhost:9091/api/mobilepoint/funcionarios/byTurno/' + turno.id;
+            MobileUI.ajax.get(urlFunc).end(function(err, res) {
+                if (err) {
+                    alert('Houve um problema na conexão, tente novamente!');
+                } else {
+                    let funcionarios = res.body;
+                    if (funcionarios.length > 0) {
+                        alert('Não é possível remover este turno, há funcionários vinculados a ele!');
+                        return;
+                    } else {
+                        MobileUI.ajax.delete(url).end(returnApiDeleteTurno);
+                    }
+                }
+            });
+        }
+    });      
+}
+
+function returnApiDeleteTurno(err) {
+    if (err) {
+        alert('Houve um problema na conexão, tente novamente!');
+        return console.log(err);
+    }
+
+    findTurnos();
+    alert('Turno removido com sucesso!');
+}
+
+function updateTurno(id) {
+    var url = 'http://localhost:9091/api/mobilepoint/turnos/' + id;
+
+    MobileUI.ajax.get(url).end(resultAjaxUpdateTurno);
+}
+
+function resultAjaxUpdateTurno(err, res){
+    if(err) {
+        alert('Houve um problema na conexão, tente novamente!');
+    } else {
+        if (res.body != null) {
+            turno = res.body;
+
+            let dataIniString = turno.horarioInicio.split("+")[0];
+            let horaInicio = new Date(dataIniString).toLocaleTimeString();
+
+            let dataFimString = turno.horarioTermino.split("+")[0];
+            let horaTermino = new Date(dataFimString).toLocaleTimeString(); 
+
+            let intervaloString = turno.intervalo.split("+")[0];
+            let intervaloFormat = new Date(intervaloString).toLocaleTimeString(); 
+
+            document.getElementById('descricao').value = turno.descricao;
+            document.getElementById('horarioInicio').value = horaInicio;
+            document.getElementById('horarioTermino').value = horaTermino;
+            document.getElementById('intervalo').value = intervaloFormat;
+            document.getElementById('tempoTolerancia').value = turno.tempoTolerancia;
+            document.getElementById('ativo').checked = turno.ativo;
+        } 
+    }
 }

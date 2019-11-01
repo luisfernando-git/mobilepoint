@@ -1,5 +1,5 @@
 <div class="page">
-    <div class="header blue-grey">
+    <div class="header indigo">
         <button class="left icon ion-arrow-left-c" onclick="backPage()"></button>
         <h1 class="align-center text-strong">Turnos</h1>
         
@@ -13,8 +13,10 @@
                 <h2 class="text-strong">${descricao}</h2>
                 <p>Horário: ${horarioInicio} - ${horarioTermino}</p>
                 <div class="right">
-                    <button class="icon ion-edit white radius border-grey" style="width: 40px"></button>
-                    <button class="icon ion-trash-b white radius border-grey" style="width: 40px"></button>
+                    <button class="icon ion-edit white radius border-grey" style="width: 40px"
+                        onclick="openPage('cadTurno'), updateTurno('${id}')"></button>
+                    <button class="icon ion-trash-b white radius border-grey" style="width: 40px"
+                        onclick="deleteTurno('${id}')"></button>
                 </div>
             </div>
         </div>

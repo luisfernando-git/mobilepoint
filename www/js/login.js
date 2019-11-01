@@ -11,7 +11,7 @@ function login() {
         var url = 'http://localhost:9091/api/mobilepoint/funcionarios/byUsername/' + username;
         MobileUI.ajax.get(url).end(resultAjaxFuncionario);    
     } else {
-        alert('Usuário/Senha devem ser informados!');
+        alert('Usuário e senha devem ser informados!');
     }
     closeLoading('btnLogin')
 }
@@ -22,9 +22,13 @@ function resultAjaxFuncionario(err, res) {
     } else {
         usuarioLogado = res.body;
         if (usuarioLogado != undefined && password == usuarioLogado.password) {
-            openPage('home')
+            if (!usuarioLogado.ativo) {
+                alert('Funcionário não está ativo na empresa!');
+                return;
+            }
+            openPage('home');
         } else {
-            alert('Usuário/Senha incorretos!');
+            alert('Usuário e/ou senha incorretos!');
         }
     }
 }

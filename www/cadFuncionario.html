@@ -1,0 +1,53 @@
+<div class="page">
+    <div class="header indigo">
+        <button class="left icon ion-arrow-left-c" onclick="backPage()"></button>
+        <h1 class="align-center text-strong">Cadastro de Funcionário</h1>
+    </div>    
+
+    <div class="content has-header">
+        <div class="list" id="formCadFuncionario">
+            <div class="item">
+                <input type="text" id="nome" placeholder="Nome">
+            </div>
+            <div class="item">
+                <input type="number" id="cpf" placeholder="CPF">
+            </div>
+            <div class="item">
+                <input type="number" id="matricula" placeholder="Matrícula">
+            </div>
+            <div class="item">
+                <input type="text" id="emailFunc" placeholder="E-mail">
+            </div>
+            <div class="item">
+                <input type="text" id="usernameFunc" placeholder="Username">
+            </div>
+            <div class="item">
+                <input type="password" id="passwordFunc" placeholder="Password">
+            </div>
+            <div class="item">                                                                  
+                <select id="turnosFunc" class="text-grey-600">                                                    
+                    <option value="">Selecione um Turno:</option>                             
+                    <option id="op" value="${id}" data="turnos">${descricao}</option>                         
+                </select>                                                                           
+            </div>  
+            <div class="item">
+                <div class="left">
+                    <input type="checkbox" class="teal-800" id="adm">
+                </div>
+                <label class="text-grey-600">Administrador</label>
+            </div>
+            <div class="item">
+                <div class="left">
+                    <input type="checkbox" class="teal-800" id="ativoFunc">
+                </div>
+                <label class="text-grey-600">Ativo</label>
+            </div>
+            <div class="item align-center">
+                <button class="radius text-white" style="width: 150px" onclick="saveFuncionario()">SALVAR</button>
+                <button class="radius text-white" style="width: 150px" onclick="clearForm()">LIMPAR</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/funcionario.js"></script>    
+</div>
